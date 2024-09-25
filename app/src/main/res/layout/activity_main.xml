@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/root_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:padding="16dp">
+
+    <!-- Logo and App Info at the Top -->
+    <LinearLayout
+        android:id="@+id/ll_CTRLtest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
+            android:id="@+id/iv_ctrlbot_logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:padding="20dp"
+            android:src="@drawable/ic_ctrlbot"
+            android:layout_gravity="center"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/tv_CTRLtest_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CTRLtest 1.0"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="6dp"
+            android:clickable="true"
+            android:focusable="true" />
+    </LinearLayout>
+
+
+    <!-- Divider Line Below the Logo and App Info -->
+    <View
+        android:id="@+id/view_logo_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/ll_CTRLtest"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Connection Section (IP, Port, etc.) -->
+    <LinearLayout
+        android:id="@+id/ll_connection_section"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/view_logo_line"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginVertical="16dp">
+
+        <!-- Protocol Label and Spinner -->
+        <TextView
+            android:id="@+id/tv_ip_type"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:gravity="start|center_vertical"
+            android:padding="10dp"
+            android:text="IP Type"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/spinner_protocol"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:entries="@array/ip_type_array"
+            android:spinnerMode="dropdown"
+            android:background="@drawable/spinner_frame"
+            android:padding="10dp"
+            android:theme="@style/CustomSpinnerDropDownStyle"/>
+
+        <EditText
+            android:id="@+id/et_host"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="Host IP Address"
+            android:background="@drawable/edittext_underline"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray_50"
+            android:inputType="number"
+            android:digits="0123456789."
+            android:padding="10dp"
+            android:layout_marginHorizontal="10dp" />
+
+
+        <!-- Port -->
+        <EditText
+            android:id="@+id/et_port"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:hint="Port"
+            android:background="@drawable/edittext_underline"
+            android:inputType="number"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray_50"
+            android:padding="10dp"
+            android:layout_marginEnd="10dp" />
+
+        <!-- Connect Button -->
+        <Button
+            android:id="@+id/btn_connect"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Connect"
+            android:visibility="visible"/>
+        <Button
+            android:id="@+id/btn_connected"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Connected"
+            android:background="@drawable/button_green"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <!-- Command Inputs Section -->
+    <LinearLayout
+        android:id="@+id/ll_commands"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/ll_connection_section"
+        android:layout_marginTop="16dp">
+
+    <!-- Command 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/et_command1"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:hint="Command 1"
+                android:textColorHint="@color/gray_50"
+                android:textColor="@color/white"
+                android:background="@drawable/edittext_underline"
+                android:textSize="16sp"
+                android:padding="10dp"
+                android:layout_marginHorizontal="10dp" />
+
+            <Spinner
+                android:id="@+id/spinner_cr_1"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/spinner_frame"
+                android:entries="@array/delimiter_array"
+                android:padding="10dp"
+                android:spinnerMode="dropdown"
+                android:theme="@style/CustomSpinnerDropDownStyle" />
+
+            <TextView
+                android:id="@+id/tv_hex1_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="HEX"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/cb_hex1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:textColor="@color/white"
+                app:buttonTint="@color/white"
+                android:layout_marginHorizontal="10dp"/>
+
+            <Button
+                android:id="@+id/btn_send1"
+                style="@style/ButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Send" />
+        </LinearLayout>
+
+        <!-- Command 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/et_command2"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:hint="Command 2"
+                android:textColorHint="@color/gray_50"
+                android:textColor="@color/white"
+                android:background="@drawable/edittext_underline"
+                android:textSize="16sp"
+                android:padding="10dp"
+                android:layout_marginHorizontal="10dp" />
+
+            <Spinner
+                android:id="@+id/spinner_cr_2"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:entries="@array/delimiter_array"
+                android:spinnerMode="dropdown"
+                android:background="@drawable/spinner_frame"
+                android:padding="10dp"
+                android:theme="@style/CustomSpinnerDropDownStyle"/>
+
+            <TextView
+                android:id="@+id/tv_hex2_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="HEX"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/cb_hex2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:buttonTint="@color/white"
+                android:layout_marginHorizontal="10dp" />
+
+            <Button
+                android:id="@+id/btn_send2"
+                style="@style/ButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Send" />
+        </LinearLayout>
+
+        <!-- Command 3 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_command3"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:hint="Command 3"
+                android:textColorHint="@color/gray_50"
+                android:textColor="@color/white"
+                android:background="@drawable/edittext_underline"
+                android:textSize="16sp"
+                android:padding="10dp"
+                android:layout_marginHorizontal="10dp" />
+
+            <Spinner
+                android:id="@+id/spinner_cr_3"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:entries="@array/delimiter_array"
+                android:spinnerMode="dropdown"
+                android:background="@drawable/spinner_frame"
+                android:padding="10dp"
+                android:theme="@style/CustomSpinnerDropDownStyle"/>
+
+            <TextView
+                android:id="@+id/tv_hex3_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="HEX"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/cb_hex3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:buttonTint="@color/white"
+                android:layout_marginHorizontal="10dp" />
+
+            <Button
+                android:id="@+id/btn_send3"
+                style="@style/ButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Send" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Terminal Output Title -->
+    <TextView
+        android:id="@+id/tv_terminal_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Received/Sent Data"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:gravity="start"
+        app:layout_constraintTop_toBottomOf="@id/ll_commands"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- ScrollView containing the Terminal Output TextView -->
+    <ScrollView
+        android:id="@+id/scroll_view_terminal_output"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginVertical="10dp"
+        android:scrollbars="vertical"
+        android:scrollbarThumbVertical="@drawable/custom_scrollbar_thumb"
+        app:layout_constraintTop_toBottomOf="@id/tv_terminal_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Terminal Output TextView -->
+        <TextView
+            android:id="@+id/tv_terminal_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:background="@color/gray_25"
+            android:gravity="start|top"
+            android:padding="10dp" />
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">CTRLtest</string>
+    <string name="ctrltest_v1_0">CTRLtest v1.0</string>
+
+    <string-array name="ip_type_array">
+        <item>TCP/IP</item>
+        <item>Telnet</item>
+        <item>SSH</item>
+    </string-array>
+
+    <string-array name="delimiter_array">
+        <item>0D 0A</item>
+        <item>0D</item>
+        <item>0A</item>
+        <item>None</item>
+    </string-array>
+
+</resources>

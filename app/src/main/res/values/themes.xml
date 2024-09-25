@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.CTRLtest" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Existing items -->
+        <item name="colorPrimary">@android:color/holo_orange_light</item>
+        <item name="colorPrimaryDark">@android:color/holo_orange_dark</item>
+        <item name="colorAccent">@android:color/holo_blue_light</item>
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:colorBackground">@android:color/black</item>
+        <item name="android:colorForeground">@android:color/white</item>
+        <item name="android:buttonStyle">@style/ButtonStyle</item>
+        <item name="android:dialogTheme">@style/TransparentDialog</item>
+    </style>
+
+    <style name="ButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_default</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:layout_margin">0dp</item>
+    </style>
+
+    <!-- Dialog style -->
+    <style name="TransparentDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:layout_width">match_parent</item> <!-- Enforce full width -->
+        <item name="android:layout_height">match_parent</item> <!-- Enforce full height -->
+        <item name="android:windowIsFloating">false</item> <!-- Make it non-floating -->
+    </style>
+
+    <!-- Custom Spinner Dropdown Style -->
+    <style name="CustomSpinnerDropDownStyle" parent="Widget.AppCompat.ListView.DropDown">
+        <item name="android:textColor">@color/white</item>
+    </style>
+</resources>
